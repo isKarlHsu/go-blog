@@ -16,6 +16,7 @@ type ArticleModel struct {
 	Sources   string `gorm:"size:1024" json:"sources"`
 	Content   string `gorm:"type:longtext" json:"content"`
 	Category *CategoryModel `json:"category" gorm:"foreignKey:CateId;references:CateId"`
+	ArticleTag *[]ArticleTagModel `json:"article_tag" gorm:"foreignKey:ArticleId;references:ArticleId"`
 	Timestamp
 }
 

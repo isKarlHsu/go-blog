@@ -7,8 +7,8 @@ import (
 )
 
 type Timestamp struct {
-	CreatedAt LocalTime `json:"created_at" gorm:"type:timestamp"`
-	UpdatedAt LocalTime `json:"updated_at" gorm:"type:timestamp"`
+	CreatedAt *LocalTime `json:"created_at" gorm:"type:timestamp"`
+	UpdatedAt *LocalTime `json:"updated_at" gorm:"type:timestamp"`
 }
 
 type LocalTime struct {
