@@ -15,7 +15,7 @@ type ArticleListParams struct {
 	PageSize int `json:"page_size"`
 }
 
-func (ArticleApi) ArticleList(c *gin.Context) {
+func (ArticleApi) Articles(c *gin.Context) {
 	var params ArticleListParams
 	err := c.ShouldBind(&params)
 	if err != nil {

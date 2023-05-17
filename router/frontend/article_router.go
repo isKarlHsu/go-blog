@@ -7,6 +7,6 @@ import (
 
 func ArticleRouter(router *gin.RouterGroup) {
 	ArticleApi := frontend.FrontendApi.ArticleApi
-	router.POST("/articleList", ArticleApi.ArticleList)
+	router.POST("/articles", ArticleApi.Articles)
 	router.POST("/article", ArticleApi.Article)
 }
