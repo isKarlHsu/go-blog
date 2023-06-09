@@ -8,4 +8,6 @@ import (
 func UserRouter(router *gin.RouterGroup) {
 	UserApiApp := backend.BackendApi.UserApi
 	router.GET("/login", UserApiApp.UserLogin)
+	router.POST("/about", UserApiApp.About)
+	router.POST("/aboutEdit", UserApiApp.AboutEdit)
 }

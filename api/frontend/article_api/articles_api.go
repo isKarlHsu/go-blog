@@ -13,6 +13,7 @@ import (
 type ArticleListParams struct {
 	Page     int `json:"page"`
 	PageSize int `json:"page_size"`
+	Tag string `json:"tag"`
 }
 
 func (ArticleApi) Articles(c *gin.Context) {
@@ -27,7 +28,7 @@ func (ArticleApi) Articles(c *gin.Context) {
 	// count := global.DB.Scopes(db.Paginate(ArticleParams.Page, ArticleParams.PageSize)).Find(&articleModel).RowsAffected
 	global.DB.Order("article_id Desc").Find(&articleModel)
 	count := int64(len(articleModel))
-	global.DB.Scopes(db.Paginate(params.Page, params.PageSize)).Order("article_id Desc").Find(&articleModel)
+	global.DB.Preload("ArticleTag.Tag").Scopes(db.Paginate(params.Page, params.PageSize)).Order("article_id Desc").Find(&articleModel)
 	data := db.Page{
 		CurrentPage: int64(params.Page),
 		PageSize:    int64(params.PageSize),

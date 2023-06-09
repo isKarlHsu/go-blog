@@ -22,6 +22,7 @@ func InitRouter() *gin.Engine {
 
 	// 前台接口组
 	frontendRouterGroup := router.Group("api")
+	frontend.UserRouter(frontendRouterGroup)
 	frontend.ArticleRouter(frontendRouterGroup)
 	frontend.PostRouter(frontendRouterGroup)
 	return router

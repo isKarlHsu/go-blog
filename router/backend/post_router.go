@@ -8,6 +8,7 @@ import (
 func PostRouter(router *gin.RouterGroup) {
 	PostApi := backend.BackendApi.PostApi
 	router.POST("/cates", PostApi.Cates)
+	router.POST("/cateEdit", PostApi.CateEdit)
 	router.POST("/tags", PostApi.Tags)
 	router.POST("/articles", PostApi.Articles)
 	router.POST("/article", PostApi.Article)

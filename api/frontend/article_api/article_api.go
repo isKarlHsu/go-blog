@@ -22,7 +22,7 @@ func (ArticleApi) Article(c *gin.Context) {
 	}
 	var articleModel model.ArticleModel
 	// count := global.DB.Scopes(db.Paginate(ArticleParams.Page, ArticleParams.PageSize)).Find(&articleModel).RowsAffected
-	global.DB.Where("article_id = ?", params.ArticleId).First(&articleModel)
+	global.DB.Preload("ArticleTag.Tag").Where("article_id = ?", params.ArticleId).First(&articleModel)
 
 	response.SuccessWithData(articleModel, c)
 }
